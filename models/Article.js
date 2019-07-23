@@ -8,6 +8,12 @@ var ArticleSchema = new Schema({
         type: String,
         required: true
     },
+    //optional author, but will print anonymous if empty 
+    author: {
+        type: String,
+        default: "Anonymous",
+        required: false
+    },
     //link is required so users can have a place to read the article
     link: {
         type: String,
@@ -16,7 +22,12 @@ var ArticleSchema = new Schema({
     //image is not mandatory, but should have a placeholder image in case no image is loaded
     image: {
         type: String,
+        default: "dummy-image",
         required: false
+    },
+    saved: {
+        type: Boolean,
+        default: false
     },
     comment: {
         type: Schema.Types.ObjectId,

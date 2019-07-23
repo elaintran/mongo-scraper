@@ -5,6 +5,7 @@ var CommentSchema = new Schema({
     //name is optional, but should write anonymous if user opts to not write a name
     name: {
         type: String,
+        default: "Anonymous",
         required: false
     },
     //body is required because comments should never be empty
