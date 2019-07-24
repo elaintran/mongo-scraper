@@ -1,3 +1,14 @@
-{{#each articles}}
-<p>{{this.title}}</p>
-{{/each}}
+<div class="container">
+    <div class="article-list">
+        {{#each articles}}
+            <div class="article-card">
+                <img src="{{image}}" class="article-image">
+                <div class="article-content">
+                    <p class="post-date">{{moment datetime format="LL"}}</p>
+                    <h3>{{title}}</h3>
+                    <p class="author">Written by {{author}}</p>
+                </div>
+            </div>
+        {{/each}}
+    </div>
+</div>

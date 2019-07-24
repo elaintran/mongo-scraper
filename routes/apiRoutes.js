@@ -12,7 +12,13 @@ module.exports = function(app) {
             $(".full-item").each(function(i, element) {
                 var title = $(element).children(".full-item-content").children(".full-item-title").text();
                 var description = $(element).children(".full-item-content").children(".full-item-dek").text().trim();
-                var author = $(element).children(".full-item-content").children(".byline").children(".byline-name").text().trim();
+                var author = author = $(element).children(".full-item-content").children(".byline").children(".byline-name").text().trim();
+                console.log(author);
+                if (author === "") {
+                    author = "Anonymous";
+                } else {
+                    author = $(element).children(".full-item-content").children(".byline").children(".byline-name").text().trim();
+                }
                 //get the initial image link
                 var image = $(element).children(".item-image").children("span").attr("data-lqip");
                 //get the index of ? to remove the substring after jpg

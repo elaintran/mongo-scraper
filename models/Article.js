@@ -15,7 +15,6 @@ var ArticleSchema = new Schema({
     //optional author, but will print anonymous if empty 
     author: {
         type: String,
-        default: "Anonymous",
         required: false
     },
     //image is not mandatory, but should have a placeholder image in case no image is loaded
