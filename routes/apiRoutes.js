@@ -1,5 +1,6 @@
 var axios = require("axios");
 var cheerio = require("cheerio");
+var db = require("../models");
 
 module.exports = function(app) {
     app.get("/scrape", function(req, res) {
@@ -30,7 +31,10 @@ module.exports = function(app) {
                     datetime: datetime
                 });
             });
-            res.json(results);
+
+            db.Article.create(results).then(function(data) {
+                res.json(data);
+            });
         });
-    })
+    });
 };
