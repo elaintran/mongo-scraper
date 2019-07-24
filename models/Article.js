@@ -8,10 +8,20 @@ var ArticleSchema = new Schema({
         type: String,
         required: true
     },
+    description: {
+        type: String,
+        required: false
+    },
     //optional author, but will print anonymous if empty 
     author: {
         type: String,
         default: "Anonymous",
+        required: false
+    },
+    //image is not mandatory, but should have a placeholder image in case no image is loaded
+    image: {
+        type: String,
+        default: "dummy-image",
         required: false
     },
     //link is required so users can have a place to read the article
@@ -19,10 +29,8 @@ var ArticleSchema = new Schema({
         type: String,
         required: true
     },
-    //image is not mandatory, but should have a placeholder image in case no image is loaded
-    image: {
+    datetime: {
         type: String,
-        default: "dummy-image",
         required: false
     },
     saved: {

@@ -31,7 +31,6 @@ module.exports = function(app) {
                 });
             });
             res.json(results);
-            // console.log(results);
         });
     })
 };
