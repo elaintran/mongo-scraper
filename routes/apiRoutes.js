@@ -12,12 +12,11 @@ module.exports = function(app) {
             $(".full-item").each(function(i, element) {
                 var title = $(element).children(".full-item-content").children(".full-item-title").text();
                 var description = $(element).children(".full-item-content").children(".full-item-dek").text().trim();
-                var author = author = $(element).children(".full-item-content").children(".byline").children(".byline-name").text().trim();
-                console.log(author);
+                //get the author name; some authors are unlisted
+                var author = $(element).children(".full-item-content").children(".byline").children(".byline-name").text().trim();
+                //if author is empty, rewrite author to anonymous
                 if (author === "") {
                     author = "Anonymous";
-                } else {
-                    author = $(element).children(".full-item-content").children(".byline").children(".byline-name").text().trim();
                 }
                 //get the initial image link
                 var image = $(element).children(".item-image").children("span").attr("data-lqip");
@@ -25,7 +24,9 @@ module.exports = function(app) {
                 var filterIndex = image.indexOf("?");
                 //update link into something cleaner
                 image = image.substring(0, filterIndex);
+                //link to the article
                 var link = "https://www.delish.com/cooking/recipe-ideas" + $(element).children(".item-image").attr("href");
+                //get the attribute value for the date posted
                 var datetime = $(element).children(".full-item-metadata").children(".publish-date").attr("data-publish-date");
                 
                 results.push({

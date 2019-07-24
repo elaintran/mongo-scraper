@@ -6,15 +6,18 @@ var ArticleSchema = new Schema({
     //title is required for users know what the article is about
     title: {
         type: String,
+        trim: true,
         required: true
     },
     description: {
         type: String,
+        trim: true,
         required: false
     },
     //optional author, but will print anonymous if empty 
     author: {
         type: String,
+        trim: true,
         required: false
     },
     //image is not mandatory, but should have a placeholder image in case no image is loaded
