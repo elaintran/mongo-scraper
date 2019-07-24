@@ -29,7 +29,7 @@ var ArticleSchema = new Schema({
         required: true
     },
     datetime: {
-        type: String,
+        type: Date,
         required: false
     },
     saved: {

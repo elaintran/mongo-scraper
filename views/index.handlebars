@@ -6,7 +6,12 @@
                 <div class="article-content">
                     <p class="post-date">{{moment datetime format="LL"}}</p>
                     <h3>{{title}}</h3>
-                    <p class="author">Written by {{author}}</p>
+                    <div class="mini-container">
+                        <p class="author">Written by {{author}}</p>
+                        <i class="fas fa-comment"></i>
+                        <p>12</p>
+                    </div>
+                    <i class="far fa-bookmark"></i>
                 </div>
             </div>
         {{/each}}
