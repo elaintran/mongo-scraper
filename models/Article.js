@@ -4,12 +4,14 @@ var Schema = mongoose.Schema;
 //create a new schema for article
 var ArticleSchema = new Schema({
     //title is required for users know what the article is about
+    //unique title to prevent the same article from being added to database
     title: {
         type: String,
         trim: true,
         unique: true,
         required: true
     },
+    //stored, but not displayed on page
     description: {
         type: String,
         trim: true,
@@ -24,7 +26,6 @@ var ArticleSchema = new Schema({
     //image is not mandatory, but should have a placeholder image in case no image is loaded
     image: {
         type: String,
-        default: "dummy-image",
         required: false
     },
     //link is required so users can have a place to read the article
@@ -32,19 +33,25 @@ var ArticleSchema = new Schema({
         type: String,
         required: true
     },
+    //extra property, used to add to the look of ui
     tag: {
         type: String,
         trim: true,
         required: false
     },
+    //used to sort articles in descending order
     datetime: {
         type: Date,
         required: false
     },
+    //show if articles are favorited or not
     saved: {
         type: Boolean,
         default: false
     },
+    //comment in array is important; allows mulitple comments to be pushed in
+    //so original comment does not get overridden
+    //also good for displaying the number of comments on page through comment.length
     comment: [{
         type: Schema.Types.ObjectId,
         ref: "Comment"
