@@ -1,12 +1,13 @@
 var db = require("../models");
+var moment = require("moment");
 
 //html routes to handlebars
 module.exports = function(app) {
     //home route with all of the scraped articles
     app.get("/", function(req, res) {
         //sort the articles in descending order from datetime
-        //possibly parse the datetime to a more readable format through moment
         db.Article.find().sort({datetime: -1}).then(function(data) {
+            data[0].datetime = 5;
             //render information into index.handlebars
             res.render("index", {articles: data});
         })

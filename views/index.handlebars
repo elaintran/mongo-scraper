@@ -1,17 +1,20 @@
-<div class="container">
+<div class="container-fluid">
     <div class="article-list">
         {{#each articles}}
             <div class="article-card">
                 <img src="{{image}}" class="article-image">
                 <div class="article-content">
-                    <p class="post-date">{{moment datetime format="LL"}}</p>
+                    {{!-- <p class="post-date">{{datetime}}</p> --}}
+                    {{!-- <p class="post-date">{{moment datetime format="LL"}}</p> --}}
+                    <p class="tag">{{tag}}</p>
                     <h3>{{title}}</h3>
+                    {{!-- <p>{{description}}</p> --}}
                     <div class="mini-container">
-                        {{!-- <p class="author">Written by {{author}}</p> --}}
+                        <p class="author">By {{author}}</p>
                         <i class="fas fa-comment"></i>
                         <p>12</p>
                     </div>
-                    <i class="far fa-bookmark"></i>
+                    <i class="far fa-heart"></i>
                 </div>
             </div>
         {{/each}}

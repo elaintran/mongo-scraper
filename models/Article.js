@@ -7,6 +7,7 @@ var ArticleSchema = new Schema({
     title: {
         type: String,
         trim: true,
+        unique: true,
         required: true
     },
     description: {
@@ -31,9 +32,16 @@ var ArticleSchema = new Schema({
         type: String,
         required: true
     },
+    tag: {
+        type: String,
+        required: false
+    },
     datetime: {
         type: Date,
         required: false
+    },
+    postDate: {
+        type: Date
     },
     saved: {
         type: Boolean,
