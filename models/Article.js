@@ -34,6 +34,7 @@ var ArticleSchema = new Schema({
     },
     tag: {
         type: String,
+        trim: true,
         required: false
     },
     datetime: {

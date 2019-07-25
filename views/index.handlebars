@@ -1,26 +1,32 @@
 <div class="container-fluid">
     <div class="navigation">
-        <h2>Delish News</h2>
+        <h2>Delish Scraper</h2>
         <h2 class="scrape">Scrape</h2>
     </div>
     <div class="article-list">
         {{#each articles}}
             <div class="article-card">
-                <img src="{{image}}" class="article-image">
+                <a href="{{link}}" target="_blank">
+                    <img src="{{image}}" class="article-image">
+                </a>
                 <div class="article-content">
-                    {{!-- <p class="post-date">{{datetime}}</p> --}}
-                    {{!-- <p class="post-date">{{moment datetime format="LL"}}</p> --}}
                     <p class="tag">{{tag}}</p>
-                    <h3>{{title}}</h3>
+                    <a href="{{link}}" target="_blank">
+                        <h3>{{title}}</h3>
+                    </a>
                     <p class="description">{{description}}</p>
                     <div class="mini-container">
                         <p class="author">By {{author}}</p>
-                        <div class="comments" data-toggle="modal" data-target="#commentModal">
+                        <div class="comments" data-id="{{_id}}" data-toggle="modal" data-target="#commentModal">
                             <i class="fas fa-comment"></i>
                             <p>12</p>
                         </div>
                     </div>
-                    <i class="far fa-heart"></i>
+                    {{#unless saved}}
+                    <i class="far fa-heart" data-id="{{_id}}"></i>
+                    {{else}}
+                    <i class="fas fa-heart colored-heart" data-id="{{_id}}"></i>
+                    {{/unless}}
                 </div>
             </div>
         {{/each}}

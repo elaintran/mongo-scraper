@@ -63,7 +63,7 @@ module.exports = function(app) {
     });
 
     //find a specific article by their id and associate comments
-    app.get("/articles:id", function(req, res) {
+    app.get("/articles/:id", function(req, res) {
         db.Article.findOne({_id: req.params.id}).populate("comment").then(function(data) {
             res.json(data);
         }).catch(function(err) {
@@ -72,7 +72,7 @@ module.exports = function(app) {
     });
 
     //send a post request when adding a comment
-    app.post("/articles:id", function(req, res) {
+    app.post("/articles/:id", function(req, res) {
         //create a comment using the poster's name and comment
         db.Comment.create(req.body).then(function(data) {
             //find the article by id and push the new comment into the specific article
@@ -86,7 +86,7 @@ module.exports = function(app) {
     });
 
     //update the saved status of a certain article depending on if user clicks on the favorite button
-    app.put("/articles:id", function(req, res) {
+    app.put("/articles/:id", function(req, res) {
         db.Article.update({_id: req.params.id}, {saved: req.body.saved}).then(function(data) {
             res.json(data);
         }).catch(function(err) {
