@@ -34,9 +34,13 @@ module.exports = function(app) {
                 result.datetime = $(element).children(".full-item-metadata").children(".publish-date").attr("data-publish-date");
                 
                 db.Article.create(result).then(function(data) {
-                    res.json(data);
+                    // res.json(data);
+                    console.log(data);
+                }).catch(function(err) {
+                    console.log(err);
                 });
             });
+            res.send("Scrape Complete");
         });
     });
 };

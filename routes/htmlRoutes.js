@@ -7,9 +7,10 @@ module.exports = function(app) {
     app.get("/", function(req, res) {
         //sort the articles in descending order from datetime
         db.Article.find().sort({datetime: -1}).then(function(data) {
-            data[0].datetime = 5;
             //render information into index.handlebars
             res.render("index", {articles: data});
+        }).catch(function(err) {
+            res.json(err);
         })
     });
 

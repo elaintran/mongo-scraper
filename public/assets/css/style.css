@@ -5,10 +5,15 @@ body {
     /* letter-spacing: 0.5px; */
 }
 
+h2 {
+    font-family: "Noto Serif", sans-serif;
+    font-weight: 600;
+}
+
 h3 {
     font-family: "Noto Serif", sans-serif;
     font-weight: 600;
-    font-size: 23px;
+    font-size: 22px;
     letter-spacing: 0.5px;
     margin-bottom: 15px;
     /* margin: 10px 0; */
@@ -17,6 +22,11 @@ h3 {
 p {
     font-size: 16px;
     margin-bottom: 7px;
+}
+
+.navigation {
+    display: flex;
+    margin: 4% 4% 2%;
 }
 
 .article-list {
@@ -87,6 +97,10 @@ p {
     font-size: 30px;
 }
 
+.fa-heart:hover {
+    cursor: pointer;
+}
+
 .tag, .author, .mini-container p  {
     text-transform: uppercase;
     font-weight: 600;
@@ -96,4 +110,35 @@ p {
 
 .tag, .author {
     color: #787679;
+}
+
+.colored-heart {
+    color: #fd5757;
+}
+
+.scrape {
+    margin-left: auto;
+}
+
+.description {
+    display: none;
+}
+
+@media screen and (max-width: 990px) {
+    .article-card {
+        width: calc(50% - 3%);
+    }
+}
+
+@media screen and (max-width: 800px) {
+    .article-card {
+        width: 100%;
+        display: flex;
+    }
+    .description {
+        display: block;
+    }
+    .article-image {
+        width: 39%;
+    }   
 }

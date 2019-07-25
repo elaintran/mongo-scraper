@@ -1,4 +1,8 @@
 <div class="container-fluid">
+    <div class="navigation">
+        <h2>Delish News</h2>
+        <h2 class="scrape">Scrape</h2>
+    </div>
     <div class="article-list">
         {{#each articles}}
             <div class="article-card">
@@ -8,7 +12,7 @@
                     {{!-- <p class="post-date">{{moment datetime format="LL"}}</p> --}}
                     <p class="tag">{{tag}}</p>
                     <h3>{{title}}</h3>
-                    {{!-- <p>{{description}}</p> --}}
+                    <p class="description">{{description}}</p>
                     <div class="mini-container">
                         <p class="author">By {{author}}</p>
                         <i class="fas fa-comment"></i>
