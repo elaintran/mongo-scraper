@@ -73,6 +73,7 @@ module.exports = function(app) {
 
     //send a post request when adding a comment
     app.post("/articles/:id", function(req, res) {
+        console.log(req.body);
         //create a comment using the poster's name and comment
         db.Comment.create(req.body).then(function(data) {
             //find the article by id and push the new comment into the specific article

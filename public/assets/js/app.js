@@ -1,15 +1,11 @@
-//bookmark button on click
-//change the fontawesome icon to filled
-//change boolean to saved
-
 $(".scrape").on("click", function() {
     $.ajax({
         method: "GET",
         url: "/scrape"
     }).then(function() {
         location.reload();
-    })
-})
+    });
+});
 
 $(".fa-heart").on("click", function() {
     var savedState = {};
@@ -27,14 +23,25 @@ $(".fa-heart").on("click", function() {
         data: savedState
     }).then(function() {
         location.reload();
-    })
-})
+    });
+});
 
 $(".comments").on("click", function() {
     var articleId = $(this).attr("data-id");
-    $(".submit-comment").attr("data-id", articleId);
+    $(".comment-form").attr("data-id", articleId);
 })
 
-document.documentElement.addEventListener("click", function(e) {
-    console.log(e.target);
-  });
+$(".comment-form").on("submit", function() {
+    var id = $(this).attr("data-id");
+    var comments = {};
+    comments.name = $(".name").val().trim();
+    comments.body = $(".comment-box").val().trim();
+
+    $.ajax({
+        method: "POST",
+        url: "/articles/" + id,
+        data: comments
+    }).then(function() {
+        location.reload();
+    });
+});
