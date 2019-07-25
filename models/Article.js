@@ -51,6 +51,23 @@ var ArticleSchema = new Schema({
     }]
 });
 
+ArticleSchema.methods.checkAuthor = function() {
+    //if author is empty, rewrite author to anonymous
+    if (this.author === "") {
+        this.author = "Anonymous";
+    }
+    //if not, use the author's name
+    return this.author;
+}
+
+ArticleSchema.methods.cleanImgLink = function() {
+    //get the index of ? to remove the substring after jpg
+    var filterIndex = this.image.indexOf("?");
+    //update link into something cleaner
+    this.image = this.image.substring(0, filterIndex);
+    return this.image;
+}
+
 var Article = mongoose.model("Article", ArticleSchema);
 
 //export the Article to models/index.js

@@ -17,30 +17,22 @@ module.exports = function(app) {
 
                 result.title = $(element).children(".full-item-content").children(".full-item-title").text();
                 result.description = $(element).children(".full-item-content").children(".full-item-dek").text().trim();
-                //get the author name; some authors are unlisted
-                var author = $(element).children(".full-item-content").children(".byline").children(".byline-name").text().trim();
-                //if author is empty, rewrite author to anonymous
-                if (author === "") {
-                    result.author = "Anonymous";
-                //if not, use the author's name
-                } else {
-                    result.author = author;
-                }
-                //get the initial image link
-                var image = $(element).children(".item-image").children("span").attr("data-lqip");
-                //get the index of ? to remove the substring after jpg
-                var filterIndex = image.indexOf("?");
-                //update link into something cleaner
-                result.image = image.substring(0, filterIndex);
-                result.tag = $(element).children(".full-item-metadata").children("a").text();
-                //link to the article
+                result.author = $(element).children(".full-item-content").children(".byline").children(".byline-name").text();
+                result.image = $(element).children(".item-image").children("span").attr("data-lqip");
                 result.link = "https://www.delish.com/cooking/recipe-ideas" + $(element).children(".item-image").attr("href");
+                result.tag = $(element).children(".full-item-metadata").children("a").text();
                 //get the attribute value for the date posted to sort by descending order
                 result.datetime = $(element).children(".full-item-metadata").children(".publish-date").attr("data-publish-date");
                 
+                var article = new db.Article(result);
+                //some authors are unlisted
+                article.checkAuthor();
+                //removes all of the substring after jpg
+                article.cleanImgLink();
+
                 //inserts a new article into the article collection
                 //create and insert works the same
-                db.Article.create(result).then(function(data) {
+                db.Article.create(article).then(function(data) {
                     console.log(data);
                 }).catch(function(err) {
                     console.log(err);
@@ -73,9 +65,11 @@ module.exports = function(app) {
 
     //send a post request when adding a comment
     app.post("/articles/:id", function(req, res) {
-        console.log(req.body);
+        var comment = new db.Comment(req.body);
+        //check if user inputted a name
+        comment.checkPoster();
         //create a comment using the poster's name and comment
-        db.Comment.create(req.body).then(function(data) {
+        db.Comment.create(comment).then(function(data) {
             //find the article by id and push the new comment into the specific article
             db.Article.findOneAndUpdate({_id: req.params.id}, {$push: {"comment": data._id}}, {new: true})
             .then(function(data) {
@@ -87,6 +81,7 @@ module.exports = function(app) {
     });
 
     //update the saved status of a certain article depending on if user clicks on the favorite button
+    //togglable between saved: true and saved: false
     app.put("/articles/:id", function(req, res) {
         db.Article.update({_id: req.params.id}, {saved: req.body.saved}).populate("comment").then(function(data) {
             res.json(data);

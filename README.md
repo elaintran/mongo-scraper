@@ -9,7 +9,7 @@ which sends another GET request Axios in order to get the HTML of the Delish web
 ## Demo
 [View Demo Here](https://www.delishscraper-ett.herokuapp.com)
 
-Technology Used
+## Technology Used
 * [Express](https://www.npmjs.com/package/express)
 * [Express-Handlebars](https://www.npmjs.com/package/express-handlebars)
 * [MongoDB](https://www.mongodb.com/)

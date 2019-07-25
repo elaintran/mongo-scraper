@@ -29,6 +29,16 @@ $(".fa-heart").on("click", function() {
 $(".comments").on("click", function() {
     var articleId = $(this).attr("data-id");
     $(".comment-form").attr("data-id", articleId);
+    $.ajax({
+        method: "GET",
+        url: "/articles/" + articleId
+    }).then(function(data) {
+        for (var i = 0; i < data.comment.length; i++) {
+            var name = $("<p>").addClass("poster-name").text(data.comment[i].name);
+            var comment = $("<p>").addClass("poster-comment").text(data.comment[i].body);
+            $(".comment-list").append(name).append(comment);
+        }
+    });
 })
 
 $(".comment-form").on("submit", function() {
