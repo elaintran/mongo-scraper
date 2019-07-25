@@ -112,6 +112,27 @@ p {
     color: #787679;
 }
 
+.form-control-plaintext {
+    background-color: #f3f3f3;
+    font-weight: 500;
+    /* border-radius: 5px; */
+    padding: 10px 15px;
+    height: 100px;
+}
+
+.submit-comment {
+    width: 100%;
+    margin-top: 20px;
+    background-color: black;
+    color: white;
+    text-transform: uppercase;
+    border: 0;
+    padding: 10px 0;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    font-size: 13px;
+}
+
 .colored-heart {
     color: #fd5757;
 }
@@ -122,6 +143,15 @@ p {
 
 .description {
     display: none;
+}
+
+.comments {
+    display: flex;
+    align-items: center;
+}
+
+.comments:hover {
+    cursor: pointer;
 }
 
 @media screen and (max-width: 990px) {
@@ -140,5 +170,6 @@ p {
     }
     .article-image {
         width: 39%;
+        height: auto;
     }   
 }

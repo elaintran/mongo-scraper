@@ -15,8 +15,10 @@
                     <p class="description">{{description}}</p>
                     <div class="mini-container">
                         <p class="author">By {{author}}</p>
-                        <i class="fas fa-comment"></i>
-                        <p>12</p>
+                        <div class="comments" data-toggle="modal" data-target="#commentModal">
+                            <i class="fas fa-comment"></i>
+                            <p>12</p>
+                        </div>
                     </div>
                     <i class="far fa-heart"></i>
                 </div>
@@ -24,3 +26,5 @@
         {{/each}}
     </div>
 </div>
+
+{{> modal}}
