@@ -19,7 +19,11 @@
                         <p class="author">By {{author}}</p>
                         <div class="comments" data-id="{{_id}}" data-toggle="modal" data-target="#commentModal">
                             <i class="fas fa-comment"></i>
-                            <p>12</p>
+                            {{#if comment.length}}
+                            <p>{{comment.length}}</p>
+                            {{else}}
+                            <p>0</p>
+                            {{/if}}
                         </div>
                     </div>
                     {{#unless saved}}

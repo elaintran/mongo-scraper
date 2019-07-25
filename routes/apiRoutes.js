@@ -88,7 +88,7 @@ module.exports = function(app) {
 
     //update the saved status of a certain article depending on if user clicks on the favorite button
     app.put("/articles/:id", function(req, res) {
-        db.Article.update({_id: req.params.id}, {saved: req.body.saved}).then(function(data) {
+        db.Article.update({_id: req.params.id}, {saved: req.body.saved}).populate("comment").then(function(data) {
             res.json(data);
         }).catch(function(err) {
             res.json(err);
