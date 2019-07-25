@@ -36,21 +36,22 @@ $(".fa-heart").on("click", function() {
 $(".comments").on("click", function() {
     var articleId = $(this).attr("data-id");
     $(".comment-form").attr("data-id", articleId);
+    $(".comment-list").empty();
     
     $.ajax({
         method: "GET",
         url: "/articles/" + articleId
     }).then(function(data) {
-        for (var i = 0; i < data.comment.length; i++) {
-            //appends all comments from a specific article onto modal
-            if (data.comment.length > 0) {
-                var name = $("<p>").addClass("poster-name").text(data.comment[i].name);
-                var comment = $("<p>").addClass("poster-comment").text(data.comment[i].body);
-                $(".comment-list").append(name).append(comment);
-            //if no comments available
-            } else {
-                $(".comment-list").append("No comments available.");
+        if (data.comment.length > 0) {
+            for (var i = 0; i < data.comment.length; i++) {
+                //appends all comments from a specific article onto modal
+                    var name = $("<p>").addClass("poster-name").text(data.comment[i].name);
+                    var comment = $("<p>").addClass("poster-comment").text(data.comment[i].body);
+                    $(".comment-list").append(name).append(comment);
             }
+        //if no comments available
+        } else {
+            $(".comment-list").append("No comments available.");
         }
     });
 });

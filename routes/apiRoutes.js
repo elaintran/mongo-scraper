@@ -70,7 +70,7 @@ module.exports = function(app) {
         comment.checkPoster();
         //create a comment using the poster's name and comment
         db.Comment.create(comment).then(function(data) {
-            //find the article by id and push the new comment into the specific article
+            //find the article by id and push the new comment into comment array
             db.Article.findOneAndUpdate({_id: req.params.id}, {$push: {"comment": data._id}}, {new: true})
             .then(function(data) {
                 res.json(data);
