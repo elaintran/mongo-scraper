@@ -101,15 +101,28 @@ p {
     cursor: pointer;
 }
 
-.tag, .author, .mini-container p  {
+.tag, .author, .mini-container p, .poster-name  {
     text-transform: uppercase;
     font-weight: 600;
     letter-spacing: 1.5px;
     font-size: 14px;
 }
 
-.tag, .author {
+.tag, .author, .poster-name {
     color: #787679;
+}
+
+.comment-list {
+    margin-bottom: 30px;
+}
+
+.poster-name {
+    margin-bottom: 3px;
+}
+
+.poster-comment {
+    font-family: "Noto Serif", sans-serif;
+    margin-bottom: 20px;
 }
 
 .form-control-plaintext {
@@ -117,12 +130,14 @@ p {
     font-weight: 500;
     /* border-radius: 5px; */
     padding: 10px 15px;
-    height: 100px;
+}
+
+textarea {
+    height: 125px;
 }
 
 .submit-comment {
     width: 100%;
-    margin-top: 20px;
     background-color: black;
     color: white;
     text-transform: uppercase;
