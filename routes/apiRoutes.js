@@ -79,7 +79,18 @@ module.exports = function(app) {
             db.Article.findOneAndUpdate({_id: req.params.id}, {$push: {"comment": data._id}}, {new: true})
             .then(function(data) {
                 res.json(data);
-            })
+            }).catch(function(err) {
+                res.json(err);
+            });
+        });
+    });
+
+    //update the saved status of a certain article depending on if user clicks on the favorite button
+    app.put("/articles:id", function(req, res) {
+        db.Article.update({_id: req.params.id}, {saved: req.body.saved}).then(function(data) {
+            res.json(data);
+        }).catch(function(err) {
+            res.json(err);
         })
-    })
+    });
 };
