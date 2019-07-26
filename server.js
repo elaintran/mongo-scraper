@@ -16,7 +16,7 @@ app.set("view engine", "handlebars");
 //make the public folder available for use
 app.use(express.static("public"));
 
-var URI = process.env.MONGO_URI || "mongodb://localhost/delishdb";
+var URI = process.env.MONGODB_URI || "mongodb://localhost/delishdb";
 mongoose.connect(URI, { useNewUrlParser: true });
 
 require("./routes/apiRoutes.js")(app);
