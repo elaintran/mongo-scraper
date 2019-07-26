@@ -1,10 +1,15 @@
 body {
     font-family: "Noto Serif", sans-serif;
     background-color: #f5f5f5;
+    color: #171717;
 }
 
-h2, h3 {
+h1, h2, h3 {
     font-weight: 600;
+}
+
+h2 {
+    font-size: 33px;
 }
 
 h3 {
@@ -23,25 +28,48 @@ a, a:hover {
     text-decoration: none;
 }
 
+textarea {
+    height: 125px;
+}
+
 .container-fluid {
     width: 85%;
     margin-bottom: 80px;
 }
 
 .navigation {
-    margin: 4% 15px 2%;
+    margin: 0 15px;
     display: flex;
-    align-items:center;
-    /* justify-content: center; */
+    align-items: center;
 }
 
 .links {
+    font-family: "Roboto", sans-serif;
     display: flex;
+    align-items: center;
     margin-left: auto;
 }
 
+.links:hover {
+    cursor: pointer;
+}
+
 .links h3 {
-    margin-left: 20px;
+    margin-left: 25px;
+    font-size: 13px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+}
+
+.favorite {
+    border: 2.9px solid #171717;
+    padding: 12px 22px;
+}
+
+.scrape {
+    background-color: #171717;
+    color: white;
+    padding: 15px 25px;
 }
 
 .article-list {
@@ -139,17 +167,12 @@ a, a:hover {
 .form-control-plaintext {
     background-color: #f3f3f3;
     font-weight: 500;
-    /* border-radius: 5px; */
     padding: 10px 15px;
-}
-
-textarea {
-    height: 125px;
 }
 
 .submit-comment {
     width: 100%;
-    background-color: black;
+    background-color: #171717;
     color: white;
     text-transform: uppercase;
     border: 0;
@@ -167,10 +190,6 @@ textarea {
     color: #fd5757;
 }
 
-.scrape {
-    margin-left: auto;
-}
-
 .description {
     display: none;
 }
@@ -182,6 +201,11 @@ textarea {
 
 .comments:hover {
     cursor: pointer;
+}
+
+.error-message {
+    width: 100%;
+    text-align: center;
 }
 
 @media screen and (max-width: 990px) {
