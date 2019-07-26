@@ -15,9 +15,9 @@ module.exports = function(app) {
     });
 
     //route to all of the saved articles
-    app.get("/bookmarks", function(req, res) {
-        //make a new handlebars to hold this information?
-        //display only saved articles through boolean?
-        res.render("bookmark", {});
+    app.get("/favorite", function(req, res) {
+        db.Article.find({saved: true}).sort({datetime: -1}).then(function(data) {
+            res.render("index", {articles: data});
+        })
     });
 };
