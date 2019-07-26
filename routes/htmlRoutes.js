@@ -1,5 +1,4 @@
 var db = require("../models");
-var moment = require("moment");
 
 //html routes to handlebars
 module.exports = function(app) {
@@ -17,6 +16,8 @@ module.exports = function(app) {
     //route to all of the saved articles
     app.get("/favorite", function(req, res) {
         db.Article.find({saved: true}).sort({datetime: -1}).then(function(data) {
+            //render data onto the same handlebar page since the only thing that
+            //changed is the type of article displayed
             res.render("index", {articles: data});
         })
     });

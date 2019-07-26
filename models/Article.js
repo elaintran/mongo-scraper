@@ -26,11 +26,13 @@ var ArticleSchema = new Schema({
     //image is not mandatory, but should have a placeholder image in case no image is loaded
     image: {
         type: String,
+        trim: true,
         required: false
     },
-    //link is required so users can have a place to read the article
+    //link is required so users can be linked to the original article
     link: {
         type: String,
+        trim: true,
         required: true
     },
     //extra property, used to add to the look of ui
@@ -42,6 +44,7 @@ var ArticleSchema = new Schema({
     //used to sort articles in descending order
     datetime: {
         type: Date,
+        trim: true,
         required: false
     },
     //show if articles are favorited or not

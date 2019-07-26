@@ -13,9 +13,8 @@ $("document").ready(function() {
             method: "GET",
             url: "/scrape"
         }).then(function() {
-            //might change this since if one favorites page and clicked on scrape,
-            //need to go back to index
-            location.reload();
+            //go back to root regardless of path location
+            window.location.replace("/");
         });
     });
 
@@ -60,7 +59,8 @@ $("document").ready(function() {
                 }
             //if no comments available
             } else {
-                $(".comment-list").append("No comments available.");
+                var noComments = $("<p>").text("No comments available.");
+                $(".comment-list").append(noComments);
             }
         });
     });

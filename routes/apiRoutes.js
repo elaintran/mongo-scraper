@@ -16,7 +16,7 @@ module.exports = function(app) {
                 var result = {};
 
                 result.title = $(element).children(".full-item-content").children(".full-item-title").text();
-                result.description = $(element).children(".full-item-content").children(".full-item-dek").text().trim();
+                result.description = $(element).children(".full-item-content").children(".full-item-dek").text();
                 result.author = $(element).children(".full-item-content").children(".byline").children(".byline-name").text();
                 result.image = $(element).children(".item-image").children("span").attr("data-lqip");
                 result.link = "https://www.delish.com/cooking/recipe-ideas" + $(element).children(".item-image").attr("href");
