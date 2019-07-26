@@ -1,10 +1,11 @@
 body {
-    font-family: "Noto Serif", sans-serif;
+    font-family: "Roboto", sans-serif;
     background-color: #f5f5f5;
     color: #171717;
 }
 
 h1, h2, h3 {
+    font-family: "Noto Serif", sans-serif;
     font-weight: 600;
 }
 
@@ -32,6 +33,14 @@ textarea {
     height: 125px;
 }
 
+textarea, input {
+    outline: none;
+}
+
+.links h3:hover, .fa-heart:hover, .comments:hover {
+    cursor: pointer;
+}
+
 .container-fluid {
     width: 85%;
     margin-bottom: 80px;
@@ -44,18 +53,14 @@ textarea {
 }
 
 .links {
-    font-family: "Roboto", sans-serif;
+    margin-left: auto;
     display: flex;
     align-items: center;
-    margin-left: auto;
-}
-
-.links:hover {
-    cursor: pointer;
 }
 
 .links h3 {
     margin-left: 25px;
+    font-family: "Roboto", sans-serif;
     font-size: 13px;
     letter-spacing: 1.5px;
     text-transform: uppercase;
@@ -67,9 +72,9 @@ textarea {
 }
 
 .scrape {
+    padding: 15px 25px;
     background-color: #171717;
     color: white;
-    padding: 15px 25px;
 }
 
 .article-list {
@@ -110,6 +115,21 @@ textarea {
     padding: 25px 20px;
 }
 
+.tag, .author, .mini-container p, .poster-name  {
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+}
+
+.tag, .author, .poster-name {
+    color: #787679;
+}
+
+.author {
+    margin-right: auto;
+}
+
 .mini-container {
     display: flex;
     align-items: center;
@@ -119,8 +139,13 @@ textarea {
     margin-bottom: 0;
 }
 
-.author {
-    margin: 0 auto 0 0;
+.comments {
+    display: flex;
+    align-items: center;
+}
+
+.comments p {
+    pointer-events: none;
 }
 
 .fa-comment {
@@ -135,20 +160,8 @@ textarea {
     font-size: 27px;
 }
 
-.fa-heart:hover {
-    cursor: pointer;
-}
-
-.tag, .author, .mini-container p, .poster-name  {
-    font-family: "Roboto", sans-serif;
-    text-transform: uppercase;
-    font-weight: 600;
-    letter-spacing: 1.5px;
-    font-size: 13px;
-}
-
-.tag, .author, .poster-name {
-    color: #787679;
+.colored-heart {
+    color: #fd5757;
 }
 
 .comment-list {
@@ -160,7 +173,6 @@ textarea {
 }
 
 .poster-comment {
-    font-family: "Noto Serif", sans-serif;
     margin-bottom: 20px;
 }
 
@@ -180,27 +192,6 @@ textarea {
     font-weight: 600;
     letter-spacing: 1.5px;
     font-size: 13px;
-}
-
-.comments p {
-    pointer-events: none;
-}
-
-.colored-heart {
-    color: #fd5757;
-}
-
-.description {
-    display: none;
-}
-
-.comments {
-    display: flex;
-    align-items: center;
-}
-
-.comments:hover {
-    cursor: pointer;
 }
 
 .error-message {

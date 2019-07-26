@@ -1,4 +1,4 @@
-$("document").ready(function() {
+$(document).ready(function() {
     function checkArticles() {
         if ($(".article-list").text().trim() === "") {
             var errorMessage = $("<h3>").addClass("error-message mt-3").text("Sorry! Looks like there's no articles available!");            
