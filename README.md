@@ -9,7 +9,7 @@ Delish Scraper is a food news and recipe scraping application that pulls and dis
 * Express-Handlebars, an Express view engine, reloads the page upon every change in the database to display all updated information with the assistance of built-in helpers. Helpers such as `{{#if}}` and `{{#unless}}` works as boolean conditionals and renders data accordingly. Some examples are changing the display when toggling between saved states and showing the number of comments per article.
 
 ## Demo
-[View Demo Here](https://www.delishscraper-ett.herokuapp.com)
+[View Demo Here](https://delish.onrender.com)
 
 ## Technology Used
 * [Express](https://www.npmjs.com/package/express)
