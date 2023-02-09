@@ -45,7 +45,7 @@ module.exports = function(app) {
 
     //find all of the articles
     app.get("/articles", function(req, res) {
-        db.Article.find({}).lean().then(function(data) {
+        db.Article.find({}).then(function(data) {
             //send back a response containing the data in json format
             res.json(data);
         //if error, return error
