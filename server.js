@@ -1,5 +1,6 @@
 var express = require("express");
 var exphbs = require("express-handlebars");
+var Handlebars = require('handlebars');
 var { allowInsecurePrototypeAccess } = require("@handlebars/allow-prototype-access");
 var mongoose = require("mongoose");
 var app = express();
