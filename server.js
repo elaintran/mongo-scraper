@@ -17,7 +17,7 @@ app.set("view engine", "handlebars");
 app.use(express.static("public"));
 
 var URI = process.env.DB_URI || "mongodb://localhost/delishdb";
-mongoose.connect(URI, { useNewUrlParser: true });
+mongoose.connect(URI, { useNewUrlParser: true, useUnifiedTopology: true });
 
 require("./routes/apiRoutes.js")(app);
 require("./routes/htmlRoutes.js")(app);
